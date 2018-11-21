@@ -14,9 +14,7 @@ public class MessageService {
     private static final LocalTime TWENTY_THREE_HOURS = LocalTime.of(23, 0);
     private static final Logger log = Logger.getLogger(MessageService.class);
 
-    public String getMessage() {
-        LocalTime timeNow = LocalTime.now();
-        Locale locale = Locale.getDefault();
+    public String getMessage(LocalTime timeNow, Locale locale) {
         ResourceBundle resourceBundle = ResourceBundle.getBundle("messageResource", locale);
         String message;
         if (timeNow.isAfter(SIX_HOURS) && timeNow.isBefore(NINE_HOURS)) {
