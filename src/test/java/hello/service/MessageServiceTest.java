@@ -3,14 +3,11 @@ package hello.service;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.nio.charset.StandardCharsets;
 import java.time.LocalTime;
 import java.util.Locale;
-import java.util.ResourceBundle;
 
 public class MessageServiceTest {
     private MessageService messageService = new MessageService();
-    private static final String MESSAGE_RESOURCE = "messageResource";
 
     @Test
     public void getMessageNotNull() {
@@ -22,8 +19,7 @@ public class MessageServiceTest {
     public void getMessageMorningRU() {
         LocalTime time = LocalTime.of(7, 10);
         Locale locale = new Locale("ru", "RU");
-        ResourceBundle resourceBundle = ResourceBundle.getBundle(MESSAGE_RESOURCE, locale);
-        String actual = new String(resourceBundle.getString("morning").getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+        String actual = "Доброе утро, Мир!";
         String expected = messageService.getMessage(time, locale);
         Assert.assertEquals(expected, actual);
     }
@@ -32,8 +28,7 @@ public class MessageServiceTest {
     public void getMessageDayRU() {
         LocalTime time = LocalTime.of(11, 10);
         Locale locale = new Locale("ru", "RU");
-        ResourceBundle resourceBundle = ResourceBundle.getBundle(MESSAGE_RESOURCE, locale);
-        String actual = new String(resourceBundle.getString("day").getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+        String actual = "Добрый день, Мир!";
         String expected = messageService.getMessage(time, locale);
         Assert.assertEquals(expected, actual);
     }
@@ -42,8 +37,7 @@ public class MessageServiceTest {
     public void getMessageEveningRU() {
         LocalTime time = LocalTime.of(20, 10);
         Locale locale = new Locale("ru", "RU");
-        ResourceBundle resourceBundle = ResourceBundle.getBundle(MESSAGE_RESOURCE, locale);
-        String actual = new String(resourceBundle.getString("evening").getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+        String actual = "Добрый вечер, Мир!";
         String expected = messageService.getMessage(time, locale);
         Assert.assertEquals(expected, actual);
     }
@@ -52,8 +46,7 @@ public class MessageServiceTest {
     public void getMessageNightRU() {
         LocalTime time = LocalTime.of(4, 10);
         Locale locale = new Locale("ru", "RU");
-        ResourceBundle resourceBundle = ResourceBundle.getBundle(MESSAGE_RESOURCE, locale);
-        String actual = new String(resourceBundle.getString("night").getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+        String actual = "Доброй ночи, Мир!";
         String expected = messageService.getMessage(time, locale);
         Assert.assertEquals(expected, actual);
     }
@@ -62,8 +55,7 @@ public class MessageServiceTest {
     public void getMessageMorningEN() {
         LocalTime time = LocalTime.of(7, 10);
         Locale locale = Locale.ENGLISH;
-        ResourceBundle resourceBundle = ResourceBundle.getBundle(MESSAGE_RESOURCE, locale);
-        String actual = new String(resourceBundle.getString("morning").getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+        String actual = "Good morning, World!";
         String expected = messageService.getMessage(time, locale);
         Assert.assertEquals(expected, actual);
     }
@@ -72,8 +64,7 @@ public class MessageServiceTest {
     public void getMessageDayEN() {
         LocalTime time = LocalTime.of(11, 10);
         Locale locale = Locale.ENGLISH;
-        ResourceBundle resourceBundle = ResourceBundle.getBundle(MESSAGE_RESOURCE, locale);
-        String actual = new String(resourceBundle.getString("day").getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+        String actual = "Good day, World!";
         String expected = messageService.getMessage(time, locale);
         Assert.assertEquals(expected, actual);
     }
@@ -82,8 +73,7 @@ public class MessageServiceTest {
     public void getMessageEveningEN() {
         LocalTime time = LocalTime.of(20, 10);
         Locale locale = Locale.ENGLISH;
-        ResourceBundle resourceBundle = ResourceBundle.getBundle(MESSAGE_RESOURCE, locale);
-        String actual = new String(resourceBundle.getString("evening").getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+        String actual = "Good evening, World!";
         String expected = messageService.getMessage(time, locale);
         Assert.assertEquals(expected, actual);
     }
@@ -92,8 +82,7 @@ public class MessageServiceTest {
     public void getMessageNightEN() {
         LocalTime time = LocalTime.of(4, 10);
         Locale locale = Locale.ENGLISH;
-        ResourceBundle resourceBundle = ResourceBundle.getBundle(MESSAGE_RESOURCE, locale);
-        String actual = new String(resourceBundle.getString("night").getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
+        String actual = "Good night, World!";
         String expected = messageService.getMessage(time, locale);
         Assert.assertEquals(expected, actual);
     }
