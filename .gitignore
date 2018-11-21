@@ -1,5 +1,6 @@
 /target/
 !.mvn/wrapper/maven-wrapper.jar
+.helloTime.iml
 
 ### STS ###
 .apt_generated
